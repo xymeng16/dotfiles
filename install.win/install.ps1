@@ -1,6 +1,7 @@
 $CONFIG_DIR = "$Home\.config"
 $JUNCTION64 = "$PSScriptRoot\junction64.exe"
-$DIRS_TO_BE_JOINED = "nvim", "wezterm"
+$DIRS_TO_BE_JOINED = "wezterm"
+$NVIM_CONFIG_DIR = "$Home\AppData\Local"
 # create $Home/.config if not exists
 if (!(Test-Path -Path "$CONFIG_DIR")) {
     New-Item -ItemType Directory -Path "$CONFIG_DIR"
@@ -24,3 +25,22 @@ if (!($JUNCTIONS -match "No matching files were found.")) {
         }
     }
 }
+
+# handle nvim config
+$NVIM_SOURCE = "$PSScriptRoot\..\nvim"
+$NVIM_DEST = "$NVIM_CONFIG_DIR\nvim"
+$NVIM_JUNCTIONS = & $JUNCTION64 -s "$NVIM_DEST"
+if ($NVIM_JUNCTIONS -match "No matching files were found.") {
+    Write-Host "Creating junction from $NVIM_SOURCE to $NVIM_DEST"
+    & $JUNCTION64 "$NVIM_DEST" "$NVIM_SOURCE"
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "Failed to create junction from $NVIM_SOURCE to $NVIM_DEST, return code $LASTEXITCODE"
+    }
+} else {
+    Write-Host "Nvim Junction already created"
+}
+
+# use winget to install missing packages
+# suppose a fresh windows installation
+$WINGET = "winget"
+$MISSING_PACKAGES = @("wez.wezterm", "Neovim.Neovim", "BurntSushi.ripgrep.MSVC", "sharkdp.fd", "JesseDuffield.lazygit")
