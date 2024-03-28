@@ -67,7 +67,8 @@ for i = 1, 8 do
 end
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-	config.default_domain = "WSL:arch"
+	-- config.default_domain = "WSL:arch"
+	config.default_prog = { "pwsh.exe", "-NoLogo" }
 end
 
 return config

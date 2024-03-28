@@ -5,3 +5,6 @@ local opt = vim.opt
 
 opt.wrap = true
 opt.mouse = ""
+if vim.fn.has("win32") then
+  opt.shell = "pwsh.exe" -- Please install Powershell 7
+end
