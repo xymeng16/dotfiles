@@ -15,7 +15,7 @@ return {
       indent = { enable = true },
     }
     configs.setup(c)
-    if vim.fn.has("win32") then
+    if vim.fn.has("win32") == 1 then
       c.compilers = { "clang" }
     end
   end,
