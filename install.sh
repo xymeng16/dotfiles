@@ -1,12 +1,18 @@
 #! /bin/bash
 
-CONFIG_DIR="$HOME/.config"
-
 # check if the script is run as root
 if [ "$EUID" -ne 0 ]; then
 	echo "Please run as root"
 	exit
 fi
+
+# check if the script is not invoked by "sudo -E" (preserve environment)
+if [ "$HOME" = "/root" ]; then
+	echo "Please use sudo -E to avoid installing into /root"
+	exit
+fi
+
+CONFIG_DIR="$HOME/.config"
 
 # Install the necessary packages
 # Distribution-specific commands should be provided
@@ -28,7 +34,9 @@ for dir in $directories; do
 	dir_name=$(echo $dir | sed 's/\///g')
 
 	# check if the directory is already mounted
-	if grep -qs "$CONFIG_DIR/$dir_name" /proc/mounts; then
+	# magic logic here, idk why the original path does not
+	# appear in my /proc/mounts, instead it is dotfiles/fish, etc.
+	if grep -qs "dotfiles/$dir_name" /proc/mounts; then
 		echo "$CONFIG_DIR/$dir_name is already mounted"
 	else
 		# mount --bind "$dir" "$CONFIG_DIR/$dir_name"
