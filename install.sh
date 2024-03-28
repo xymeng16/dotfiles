@@ -19,5 +19,19 @@ directories=$(ls -d */)
 
 # bind mount all directories
 for dir in $directories; do
-	mount --bind $dir $CONFIG_DIR/$dir
+	# don't mount the install.win directory
+	if [ "$dir" == "install.win/" ]; then
+		continue
+	fi
+
+	# get the directory name
+	dir_name=$(echo $dir | sed 's/\///g')
+
+	# check if the directory is already mounted
+	if grep -qs "$CONFIG_DIR/$dir_name" /proc/mounts; then
+		echo "$CONFIG_DIR/$dir_name is already mounted"
+	else
+		# mount --bind "$dir" "$CONFIG_DIR/$dir_name"
+		echo "Mounting $dir to $CONFIG_DIR/$dir_name"
+	fi
 done
