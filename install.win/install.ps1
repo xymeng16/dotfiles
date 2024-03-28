@@ -43,4 +43,15 @@ if ($NVIM_JUNCTIONS -match "No matching files were found.") {
 # use winget to install missing packages
 # suppose a fresh windows installation
 $WINGET = "winget"
-$MISSING_PACKAGES = @("wez.wezterm", "Neovim.Neovim", "BurntSushi.ripgrep.MSVC", "sharkdp.fd", "JesseDuffield.lazygit")
+$MISSING_PACKAGES = @("wez.wezterm", "Neovim.Neovim", "BurntSushi.ripgrep.MSVC", "sharkdp.fd", "JesseDuffield.lazygit", "LLVM.LLVM")
+
+foreach ($PACKAGE in $MISSING_PACKAGES) {
+    Write-Host "Installing $PACKAGE"
+    & $WINGET install -e --id $PACKAGE
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "Failed to install $PACKAGE, return code $LASTEXITCODE"
+    }
+}
+
+Write-Host "Please add LLVM to PATH manually!"
+Write-Host "Commonly it is located at C:\Program Files\LLVM\bin"
