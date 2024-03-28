@@ -66,4 +66,8 @@ for i = 1, 8 do
 	})
 end
 
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+	config.default_domain = "WSL:arch"
+end
+
 return config
