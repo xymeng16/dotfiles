@@ -39,7 +39,7 @@ for dir in $directories; do
 	if grep -qs "dotfiles/$dir_name" /proc/mounts; then
 		echo "$CONFIG_DIR/$dir_name is already mounted"
 	else
-		# mount --bind "$dir" "$CONFIG_DIR/$dir_name"
+		mount --bind "$dir" "$CONFIG_DIR/$dir_name"
 		echo "Mounting $dir to $CONFIG_DIR/$dir_name"
 	fi
 done
