@@ -1,6 +1,15 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
+-- functions
+local function enable_wayland()
+	local wayland = os.getenv("XDG_SESSION_TYPE")
+	if wayland == "wayland" then
+		return true
+	end
+	return false
+end
+
 local config = {
 	front_end = "WebGpu",
 
@@ -50,8 +59,7 @@ local config = {
 		},
 	},
 
-	-- Use for loop to generate F1-F8 tab activation shortcut
-
+	-- enable_wayland = false,
 	use_fancy_tab_bar = false,
 	hide_tab_bar_if_only_one_tab = true,
 	window_background_opacity = 0.9,
