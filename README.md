@@ -1,4 +1,4 @@
-# Xiangyi's dotfiles repo
+# Xiangyi's dotfiles repo (WIP)
 
 This repo aims to provide a consistent terminal experience among different platforms (Linux, Windows and macOS).
 
