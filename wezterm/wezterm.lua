@@ -13,7 +13,6 @@ end
 local config = {
 	front_end = "WebGpu",
 
-	font_size = 12,
 	font = wezterm.font("Agave Nerd Font", { weight = "Regular" }),
 
 	color_scheme = "Catppuccin Mocha",
@@ -21,14 +20,14 @@ local config = {
 	keys = {
 		-- Create a new tab in the same domain as the current pane
 		{
-			key = "t",
-			mods = "ALT",
+			key = "Enter",
+			mods = "CTRL",
 			action = act.SpawnTab("CurrentPaneDomain"),
 		},
 		-- Close current tab
 		{
 			key = "q",
-			mods = "ALT",
+			mods = "CTRL",
 			action = wezterm.action.CloseCurrentTab({ confirm = true }),
 		},
 		-- Scroll by pre-defined metrics
@@ -53,9 +52,14 @@ local config = {
 			action = act.ScrollByPage(0.5),
 		},
 		{
-			key = '"',
-			mods = "ALT",
+			key = "'",
+			mods = "CTRL",
 			action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
+		},
+		{
+			key = ";",
+			mods = "CTRL",
+			action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 		},
 	},
 
@@ -69,7 +73,8 @@ local config = {
 for i = 1, 8 do
 	-- F1-F8 to activate the corresponding tab
 	table.insert(config.keys, {
-		key = "F" .. tostring(i),
+		key = tostring(i),
+		mods = "CTRL",
 		action = act.ActivateTab(i - 1),
 	})
 end
@@ -77,6 +82,10 @@ end
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	-- config.default_domain = "WSL:arch"
 	config.default_prog = { "pwsh.exe", "-NoLogo" }
+end
+
+if wezterm.target_triple == "aarch64-apple-darwin" then
+	config.font_size = 16
 end
 
 return config
