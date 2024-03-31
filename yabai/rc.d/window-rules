@@ -1,4 +1,4 @@
 yabai -m rule --add app="^(System Settings|系统设置)" manage=off sub-layer=normal
-yabai -m rule --add app="^(哔哩哔哩)$" title!="^(哔哩哔哩 \(゜-゜\)つロ 干杯~-bilibili)$" manage=off sub-layer=above
+yabai -m rule --add app="^(哔哩哔哩)$"  manage=off sub-layer=above 
 yabai -m rule --add app="^(WeChat)$" title!="^(Wechat \(Chats\))$" manage=off sub-layer=normal
 yabai -m rule --add app="^(WeChat)$" title="^(Wechat \(Chats\))$" manage=on sub-layer=auto

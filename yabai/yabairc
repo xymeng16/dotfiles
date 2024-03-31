@@ -46,4 +46,6 @@ yabai -m config \
 # import other configuration
 source $HOME/.config/yabai/rc.d/window-rules
 
+borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0 &
+
 echo "yabai configuration loaded.."
