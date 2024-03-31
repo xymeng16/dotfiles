@@ -1,0 +1,13 @@
+ctrl + cmd - h : yabai -m window --focus west
+ctrl + cmd - j : yabai -m window --foucs south
+ctrl + cmd - k : yabai -m window --focus north
+ctrl + cmd - l : yabai -m window --focus east
+
+ctrl + cmd - w : yabai -m window $(yabai -m query --windows | jq '(.[] | select(.title=="WeChat (Chats)")).id') --focus
+ctrl + cmd - t : yabai -m window $(yabai -m query --windows | jq '(.[] | select(.app=="WezTerm")).id') --focus 
+ctrl + cmd - d : yabai -m window $(yabai -m query --windows | jq '(.[] | select(.app=="Telegram")).id') --focus 
+ctrl + cmd - c : yabai -m window $(yabai -m query --windows | jq '(.[] | select(.app=="Google Chrome")).id') --focus 
+ctrl + cmd - p : yabai -m window $(yabai -m query --windows | jq '(.[] | select(.app=="zathura")).id') --focus 
+
+ctrl + cmd - 1 : yabai -m display --focus 2
+ctrl + cmd - 2 : yabai -m display --focus 1
