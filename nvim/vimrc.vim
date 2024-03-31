@@ -24,18 +24,21 @@ let maplocalleader = ","
 
 " make it adapted to wsl2
 if has('win32') || (has('unix') && exists('$WSLENV'))
-       if executable('SumatraPDF.exe')
-         let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
-       elseif executable('sioyek.exe')
-         let g:vimtex_view_method = 'sioyek'
-         let g:vimtex_view_sioyek_exe = 'sioyek.exe'
-         let g:vimtex_callback_progpath = 'wsl nvim'
-       elseif executable('mupdf.exe')
-         let g:vimtex_view_general_viewer = 'mupdf.exe'
-       endif
-     else
-       let g:vimtex_view_method = 'zathura'
-     endif
+      if executable('SumatraPDF.exe')
+       let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
+      elseif executable('sioyek.exe')
+        let g:vimtex_view_method = 'sioyek'
+        let g:vimtex_view_sioyek_exe = 'sioyek.exe'
+        let g:vimtex_callback_progpath = 'wsl nvim'
+      elseif executable('mupdf.exe')
+        let g:vimtex_view_general_viewer = 'mupdf.exe'
+      endif
+else
+  let g:vimtex_view_method = 'skim'
+  let g:vimtex_view_skim_sync = 1
+  let g:vimtex_view_skim_activate = 1
+  let g:vimtex_view_skim_reading_bar=1
+endif
 " let g:vimtex_view_method = 'zathura_simple'
 
 function! SetServerName()
