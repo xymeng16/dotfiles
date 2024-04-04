@@ -88,4 +88,8 @@ if wezterm.target_triple == "aarch64-apple-darwin" then
 	config.font_size = 16
 end
 
+if config.enable_wayland == false then
+	config.dpi = 192.0
+end
+
 return config
