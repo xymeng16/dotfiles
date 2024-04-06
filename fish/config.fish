@@ -17,4 +17,9 @@ if status is-interactive
     end
     oh-my-posh init fish --config "~/.config/fish/omp/1_shell.omp.json" | source
     keychain --eval --quiet -Q id_rsa | source
+
+    # define alias
+    alias s="sudo"
+    alias se="sudo -E"
+    alias v="nvim"
 end
