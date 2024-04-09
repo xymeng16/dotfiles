@@ -14,4 +14,12 @@ return {
       },
     },
   },
+  {
+    "xymeng16/alpha-nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      startify = require("alpha.themes.startify").config
+      require("alpha").setup(startify)
+    end,
+  },
 }
