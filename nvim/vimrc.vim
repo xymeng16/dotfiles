@@ -43,9 +43,9 @@ endif
 
 function! SetServerName()
   if has('win32')
-    let nvim_server_file = $TEMP . "/curnvimserver.txt"
+    let nvim_server_file = "C:/Users/xiangyi/AppData/Local/Temp" . "/curnvimserver.txt"
     let cmd = printf("echo %s > %s", v:servername, nvim_server_file)
-  call system(cmd)
+    call system(cmd)
   endif
 endfunction
 
