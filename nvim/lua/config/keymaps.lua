@@ -170,5 +170,7 @@ function JumpToLastFuncCall()
   end
 end
 
+local function JumpToNextFuncCallByRegex() end
+
 vim.api.nvim_set_keymap("n", "]n", "<cmd>lua JumpToNextFuncCall()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "[n", "<cmd>lua JumpToLastFuncCall()<CR>", { noremap = true, silent = true })
