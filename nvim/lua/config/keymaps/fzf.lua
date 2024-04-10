@@ -1,0 +1,3 @@
+-- vim.api.nvim_set_keymap("n", "<C-p>", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-l>", "<cmd>lua require('fzf-lua').live_grep_glob()<CR>", { silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-,>", "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true })

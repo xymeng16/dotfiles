@@ -1,7 +1,7 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
-
+require("config.keymaps.fzf")
 local ts_utils = require("nvim-treesitter.ts_utils")
 
 local function add(x, y)
@@ -172,5 +172,5 @@ end
 
 local function JumpToNextFuncCallByRegex() end
 
-vim.api.nvim_set_keymap("n", "]n", "<cmd>lua JumpToNextFuncCall()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "[n", "<cmd>lua JumpToLastFuncCall()<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "]n", "<cmd>lua JumpToNextFuncCall()<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "[n", "<cmd>lua JumpToLastFuncCall()<CR>", { noremap = true, silent = true })
