@@ -15,6 +15,7 @@ if status is-interactive
     if test -e ~/miniconda3
         fish_add_path ~/miniconda3/bin
     end
+    fish_add_path ~/.local/bin
     oh-my-posh init fish --config "~/.config/fish/omp/1_shell.omp.json" | source
     keychain --eval --quiet -Q id_rsa | source
 
