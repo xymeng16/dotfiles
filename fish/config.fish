@@ -23,4 +23,7 @@ if status is-interactive
     alias s="sudo"
     alias se="sudo -E"
     alias v="nvim"
+
+    # define variables
+    set -gx EDITOR nvim
 end
