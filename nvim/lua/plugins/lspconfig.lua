@@ -44,6 +44,22 @@ return {
           directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
           semanticTokens = true,
         },
+        rust_analyzer = {},
+        taplo = {
+          keys = {
+            {
+              "K",
+              function()
+                if vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
+                  require("crates").show_popup()
+                else
+                  vim.lsp.buf.hover()
+                end
+              end,
+              desc = "Show Crate Documentation",
+            },
+          },
+        },
       },
       setup = {
         gopls = function(_, opts)
@@ -66,6 +82,9 @@ return {
           end)
           -- end workaround
         end,
+        rust_analyzer = function()
+          return true
+        end,
       },
     },
   },
@@ -76,6 +95,7 @@ return {
       vim.list_extend(opts.ensure_installed, { "goimports", "gofumpt" })
       vim.list_extend(opts.ensure_installed, { "gomodifytags", "impl" })
       vim.list_extend(opts.ensure_installed, { "delve" })
+      vim.list_extend(opts.ensure_installed, { "codelldb" })
     end,
   },
   -- {
