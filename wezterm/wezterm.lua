@@ -33,7 +33,8 @@ local config = {
 
 	font = wezterm.font("Agave Nerd Font", { weight = "Regular" }),
 
-	color_scheme = "Catppuccin Mocha",
+	-- color_scheme = "Catppuccin Mocha",
+	color_scheme = "carbonfox",
 
 	keys = {
 		-- Create a new tab in the same domain as the current pane
