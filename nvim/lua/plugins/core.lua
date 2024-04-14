@@ -1,9 +1,10 @@
 return {
   { "ellisonleao/gruvbox.nvim" },
+  { "EdenEast/nightfox.nvim" },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox",
+      colorscheme = "carbonfox",
 
       news = {
         -- When enabled, NEWS.md will be shown when changed.

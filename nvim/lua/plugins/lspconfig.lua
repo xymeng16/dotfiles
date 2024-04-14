@@ -3,6 +3,10 @@ return {
     "neovim/nvim-lspconfig",
     optional = true,
     opts = {
+      inlay_hints = { enabled = true },
+      codelens = {
+        enabled = true,
+      },
       servers = {
         texlab = {
           keys = {
