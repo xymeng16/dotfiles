@@ -10,56 +10,87 @@ local function enable_wayland()
 	return false
 end
 
+-- key-direction map
+local directional_keys = {
+	["h"] = "Left",
+	["j"] = "Down",
+	["k"] = "Up",
+	["l"] = "Right",
+}
+
+local mods = {
+	["c"] = "CTRL",
+	["sh"] = "SHIFT",
+	["a"] = "ALT",
+	["s"] = "SUPER",
+	["cs"] = "CTRL|SUPER",
+	["csh"] = "CTRL|SHIFT",
+	["csha"] = "CTRL|SHIFT|ALT",
+}
+
 local config = {
 	front_end = "WebGpu",
 
 	font = wezterm.font("Agave Nerd Font", { weight = "Regular" }),
 
-	color_scheme = "Catppuccin Mocha",
+	-- color_scheme = "Catppuccin Mocha",
+	color_scheme = "carbonfox",
 
 	keys = {
 		-- Create a new tab in the same domain as the current pane
 		{
 			key = "Enter",
-			mods = "CTRL",
+			mods = mods["c"],
 			action = act.SpawnTab("CurrentPaneDomain"),
 		},
 		-- Close current tab
 		{
 			key = "q",
-			mods = "CTRL",
+			mods = mods["c"],
 			action = wezterm.action.CloseCurrentTab({ confirm = true }),
 		},
 		-- Scroll by pre-defined metrics
 		{
 			key = "UpArrow",
-			mods = "SHIFT",
+			mods = mods["sh"],
 			action = act.ScrollByLine(-1),
 		},
 		{
 			key = "DownArrow",
-			mods = "SHIFT",
+			mods = mods["sh"],
 			action = act.ScrollByLine(1),
 		},
 		{
 			key = "PageUp",
-			mods = "SHIFT",
+			mods = mods["sh"],
 			action = act.ScrollByPage(-0.5),
 		},
 		{
 			key = "PageDown",
-			mods = "SHIFT",
+			mods = mods["sh"],
 			action = act.ScrollByPage(0.5),
 		},
 		{
-			key = "'",
-			mods = "CTRL",
+			key = '"',
+			mods = mods["csh"],
 			action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
 		},
 		{
-			key = ";",
-			mods = "CTRL",
+			key = ":",
+			mods = mods["csh"],
 			action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+		},
+		{
+			key = "Q",
+			mods = mods["csh"],
+			action = wezterm.action.CloseCurrentPane({ confirm = true }),
+		},
+		{
+			key = "t",
+			mods = mods["cs"],
+			action = wezterm.action.SpawnCommandInNewTab({
+				args = { "htop" },
+			}),
 		},
 	},
 
@@ -79,6 +110,14 @@ for i = 1, 8 do
 	})
 end
 
+for key, direction in pairs(directional_keys) do
+	table.insert(config.keys, {
+		key = key,
+		mods = mods["csh"],
+		action = act.ActivatePaneDirection(direction),
+	})
+end
+
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	-- config.default_domain = "WSL:arch"
 	config.default_prog = { "pwsh.exe", "-NoLogo" }
@@ -86,6 +125,10 @@ end
 
 if wezterm.target_triple == "aarch64-apple-darwin" then
 	config.font_size = 16
+end
+
+if config.enable_wayland == false then
+	config.dpi = 192.0
 end
 
 return config

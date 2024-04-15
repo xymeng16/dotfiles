@@ -1,0 +1,13 @@
+diff --git a/window/src/os/wayland/window.rs b/window/src/os/wayland/window.rs
+index 64095e7cd..c07c8ef16 100644
+--- a/window/src/os/wayland/window.rs
++++ b/window/src/os/wayland/window.rs
+@@ -1108,6 +1108,8 @@ impl WaylandWindowInner {
+     }
+ 
+     fn show(&mut self) {
++        log::debug!("Hyprland!!");
++        self.events.dispatch(WindowEvent::NeedRepaint);
+         if self.window.is_none() {
+             return;
+         }

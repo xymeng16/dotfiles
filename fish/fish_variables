@@ -1,9 +1,12 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export SSH_AGENT_PID:1181
+SETUVAR --export SSH_AUTH_SOCK:/tmp/ssh\x2dXXXXXX2YiH3U/agent\x2e1180
 SETUVAR __fish_initialized:3400
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
 SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:\x7e/\x2econfig/fish/functions/_nvm_index_update\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_list\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_activate\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_deactivate\x2efish\x1e\x7e/\x2econfig/fish/functions/nvm\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/nvm\x2efish\x1e\x7e/\x2econfig/fish/completions/nvm\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejorgebucaran/nvm\x2efish
+SETUVAR _fisher_lewisacidic_2F_fish_2D_git_2D_abbr_files:\x7e/\x2econfig/fish/functions/git_current_branch\x2efish\x1e\x7e/\x2econfig/fish/functions/git_develop_branch\x2efish\x1e\x7e/\x2econfig/fish/functions/git_feature_branch_prepend\x2efish\x1e\x7e/\x2econfig/fish/functions/git_main_branch\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/git_abbr\x2efish
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejorgebucaran/nvm\x2efish\x1elewisacidic/fish\x2dgit\x2dabbr
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_color_autosuggestion:brblack
 SETUVAR fish_color_cancel:\x2dr
@@ -33,4 +36,8 @@ SETUVAR fish_pager_color_description:yellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
+<<<<<<< HEAD
 SETUVAR fish_user_paths:/opt/homebrew/opt/openjdk/bin\x1e/Users/xiangyi/miniconda3/bin\x1e/opt/homebrew/bin\x1e/opt/homebrew/sbin
+=======
+SETUVAR fish_user_paths:/home/xiangyi/\x2elocal/bin\x1e/home/xiangyi/miniconda3/bin\x1e/Users/xiangyi/miniconda3/bin\x1e/opt/homebrew/bin\x1e/opt/homebrew/sbin
+>>>>>>> origin/HEAD

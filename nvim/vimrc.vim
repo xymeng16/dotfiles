@@ -33,19 +33,21 @@ if has('win32') || (has('unix') && exists('$WSLENV'))
       elseif executable('mupdf.exe')
         let g:vimtex_view_general_viewer = 'mupdf.exe'
       endif
-else
-  let g:vimtex_view_method = 'skim'
-  let g:vimtex_view_skim_sync = 1
-  let g:vimtex_view_skim_activate = 1
-  let g:vimtex_view_skim_reading_bar=1
+  elseif has('osx')
+    let g:vimtex_view_method = 'skim'
+    let g:vimtex_view_skim_sync = 1
+    let g:vimtex_view_skim_activate = 1
+    let g:vimtex_view_skim_reading_bar=1
+  else
+    let g:vimtex_view_method = 'zathura'
 endif
 " let g:vimtex_view_method = 'zathura_simple'
 
 function! SetServerName()
   if has('win32')
-    let nvim_server_file = $TEMP . "/curnvimserver.txt"
+    let nvim_server_file = "C:/Users/xiangyi/AppData/Local/Temp" . "/curnvimserver.txt"
     let cmd = printf("echo %s > %s", v:servername, nvim_server_file)
-  call system(cmd)
+    call system(cmd)
   endif
 endfunction
 

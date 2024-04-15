@@ -1,0 +1,2 @@
+#!/bin/bash
+ps -eo size,command --sort -size | grep -i $1 | awk '{ hr=$1/1024 ; sum +=hr; echo $1} END {print sum}'

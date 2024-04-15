@@ -1,0 +1,6 @@
+[submodule "rime"]
+	path = rime
+	url = git@github.com:xymeng16/oh-my-rime.git
+[submodule "tmux"]
+	path = tmux
+	url = git@github.com:xymeng16/.tmux.git

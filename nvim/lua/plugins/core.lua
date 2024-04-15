@@ -1,9 +1,10 @@
 return {
   { "ellisonleao/gruvbox.nvim" },
+  { "EdenEast/nightfox.nvim" },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox",
+      colorscheme = "carbonfox",
 
       news = {
         -- When enabled, NEWS.md will be shown when changed.
@@ -13,5 +14,13 @@ return {
         neovim = false,
       },
     },
+  },
+  {
+    "xymeng16/alpha-nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      startify = require("alpha.themes.startify").config
+      require("alpha").setup(startify)
+    end,
   },
 }
