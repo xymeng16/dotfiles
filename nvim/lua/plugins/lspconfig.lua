@@ -5,7 +5,7 @@ return {
     opts = {
       inlay_hints = { enabled = true },
       codelens = {
-        enabled = true,
+        enabled = false,
       },
       servers = {
         texlab = {

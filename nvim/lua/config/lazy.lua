@@ -1,6 +1,6 @@
 -- Load old-style lazy.vim first to avoid conflicts
-local vimrc = vim.fn.stdpath("config") .. "/vimrc.vim"
-vim.cmd.source(vimrc)
+-- local vimrc = vim.fn.stdpath("config") .. "/vimrc.vim"
+-- vim.cmd.source(vimrc)
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
