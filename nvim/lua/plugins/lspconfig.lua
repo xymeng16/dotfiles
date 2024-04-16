@@ -1,4 +1,4 @@
-return {
+local config = {
   {
     "neovim/nvim-lspconfig",
     optional = true,
@@ -110,3 +110,9 @@ return {
     "nvim-neotest/neotest-go",
   },
 }
+
+if jit.os == "Linux" and (jit.arch == "arm64" or jit.arch == "aarch64") then
+  config[1].opts.servers.clangd = { mason = false }
+end
+
+return config
