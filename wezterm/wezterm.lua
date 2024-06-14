@@ -46,7 +46,7 @@ local config = {
 		-- Close current tab
 		{
 			key = "q",
-			mods = mods["c"],
+			mods = mods["csh"],
 			action = wezterm.action.CloseCurrentTab({ confirm = true }),
 		},
 		-- Scroll by pre-defined metrics
