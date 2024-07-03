@@ -17,6 +17,7 @@ return {
             require("fzf-lua").files(args)
           end,
         },
+        -- ["ctrl-r"] = { actions.toggle_ignore },
       },
     })
   end,

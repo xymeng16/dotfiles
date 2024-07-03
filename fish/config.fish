@@ -4,6 +4,10 @@ if status is-interactive
     set OS (uname)
     switch $OS
         case Linux
+            if test -e /home/xiangyi/Downloads/command-line-tools
+                fish_add_path /home/xiangyi/Downloads/command-line-tools/bin
+                fish_add_path /home/xiangyi/Downloads/command-line-tools/sdk/HarmonyOS-NEXT-DB1/openharmony/toolchains
+            end
         case Darwin
             # setup homebrew
             # check if homebrew is installed
@@ -26,4 +30,19 @@ if status is-interactive
     alias ta="tmux a"
     # define variables
     set -gx EDITOR nvim
+    set -gx USE_CCACHE 1
+    set -gx CCACHE_EXEC /usr/bin/ccache
 end
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f /home/xiangyi/miniconda3/bin/conda
+    eval /home/xiangyi/miniconda3/bin/conda "shell.fish" hook $argv | source
+else
+    if test -f "/home/xiangyi/miniconda3/etc/fish/conf.d/conda.fish"
+        . "/home/xiangyi/miniconda3/etc/fish/conf.d/conda.fish"
+    else
+        set -x PATH /home/xiangyi/miniconda3/bin $PATH
+    end
+end
+# <<< conda initialize <<<
