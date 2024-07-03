@@ -14,6 +14,10 @@ if status is-interactive
             if test -e /opt/homebrew/bin/brew
                 fish_add_path /opt/homebrew/bin
             end
+            if test -e /opt/homebrew/bin/orb
+                set -gxa PATH /Users/xiangyi/.orbstack/bin
+            end
+            set -x OHOS_NDK_HOME /Applications/DevEco-Studio.app/Contents/sdk/HarmonyOS-NEXT-DB1/openharmony/
     end
     # setup miniconda if installed
     if test -e ~/miniconda3
@@ -34,8 +38,6 @@ if status is-interactive
     set -gx CCACHE_EXEC /usr/bin/ccache
 end
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
 if test -f /home/xiangyi/miniconda3/bin/conda
     eval /home/xiangyi/miniconda3/bin/conda "shell.fish" hook $argv | source
 else
@@ -45,4 +47,3 @@ else
         set -x PATH /home/xiangyi/miniconda3/bin $PATH
     end
 end
-# <<< conda initialize <<<
