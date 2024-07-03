@@ -10,6 +10,10 @@ if status is-interactive
             if test -e /opt/homebrew/bin/brew
                 fish_add_path /opt/homebrew/bin
             end
+            if test -e /opt/homebrew/bin/orb
+                set -gxa PATH /Users/xiangyi/.orbstack/bin
+            end
+            set -x OHOS_NDK_HOME /Applications/DevEco-Studio.app/Contents/sdk/HarmonyOS-NEXT-DB1/openharmony/
     end
     # setup miniconda if installed
     if test -e ~/miniconda3
@@ -27,3 +31,17 @@ if status is-interactive
     # define variables
     set -gx EDITOR nvim
 end
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f /Users/xiangyi/miniconda3/bin/conda
+    eval /Users/xiangyi/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+else
+    if test -f "/Users/xiangyi/miniconda3/etc/fish/conf.d/conda.fish"
+        . "/Users/xiangyi/miniconda3/etc/fish/conf.d/conda.fish"
+    else
+        set -x PATH "/Users/xiangyi/miniconda3/bin" $PATH
+    end
+end
+# <<< conda initialize <<<
+
