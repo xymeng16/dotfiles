@@ -36,14 +36,16 @@ if status is-interactive
     set -gx EDITOR nvim
     set -gx USE_CCACHE 1
     set -gx CCACHE_EXEC /usr/bin/ccache
-end
 
-if test -f /home/xiangyi/miniconda3/bin/conda
-    eval /home/xiangyi/miniconda3/bin/conda "shell.fish" hook $argv | source
-else
-    if test -f "/home/xiangyi/miniconda3/etc/fish/conf.d/conda.fish"
-        . "/home/xiangyi/miniconda3/etc/fish/conf.d/conda.fish"
+    if test -f /home/xiangyi/miniconda3/bin/conda
+        eval /home/xiangyi/miniconda3/bin/conda "shell.fish" hook $argv | source
     else
-        set -x PATH /home/xiangyi/miniconda3/bin $PATH
+        if test -f "/home/xiangyi/miniconda3/etc/fish/conf.d/conda.fish"
+            . "/home/xiangyi/miniconda3/etc/fish/conf.d/conda.fish"
+        else
+            set -x PATH /home/xiangyi/miniconda3/bin $PATH
+        end
     end
 end
+
+
