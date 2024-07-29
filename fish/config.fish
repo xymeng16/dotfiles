@@ -39,8 +39,9 @@ if status is-interactive
 
     # setup miniconda if installed
     if test -e ~/miniconda3
-        fish_add_path ~/miniconda3/bin
-        eval ~/miniconda3/bin/conda "shell.fish" hook $argv | source
+        #fish_add_path ~/miniconda3/bin
+        #eval ~/miniconda3/bin/conda "shell.fish" hook $argv | source
+        fish_add_path ~/miniconda3/condabin
     end
 
     fish_add_path ~/.local/bin
