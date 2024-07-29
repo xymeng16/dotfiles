@@ -7,6 +7,7 @@ if status is-interactive
             if test -e /home/xiangyi/Downloads/command-line-tools
                 fish_add_path /home/xiangyi/Downloads/command-line-tools/bin
                 fish_add_path /home/xiangyi/Downloads/command-line-tools/sdk/HarmonyOS-NEXT-DB1/openharmony/toolchains
+                set -gx OHOS_NDK_HOME /home/xiangyi/Downloads/command-line-tools/sdk/HarmonyOS-NEXT-DB1/openharmony
             end
         case Darwin
 
