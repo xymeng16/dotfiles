@@ -19,8 +19,8 @@ if status is-interactive
             if test -e /opt/homebrew/bin/orb
                 fish_add_path /Users/xiangyi/.orbstack/bin
             end
-            set -x OHOS_NDK_HOME /Applications/DevEco-Studio.app/Contents/sdk/HarmonyOS-NEXT-DB1/openharmony/
-            fish_add_path /Applications/DevEco-Studio.app/Contents/sdk/HarmonyOS-NEXT-DB1/openharmony/toolchains/
+            set -x OHOS_NDK_HOME /Applications/DevEco-Studio.app/Contents/sdk/HarmonyOS-NEXT*/openharmony/
+            fish_add_path /Applications/DevEco-Studio.app/Contents/sdk/HarmonyOS-NEXT*/openharmony/toolchains/
     end
 
     # config node
