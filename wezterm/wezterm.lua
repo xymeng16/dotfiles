@@ -28,10 +28,19 @@ local mods = {
 	["csha"] = "CTRL|SHIFT|ALT",
 }
 
+local font_options = {
+	weight = "Regular",
+}
+
+local fonts = {
+	["agave"] = wezterm.font("Agave Nerd Font", font_options),
+	["blex"] = wezterm.font("BlexMono Nerd Font", font_options),
+}
+
 local config = {
 	front_end = "WebGpu",
 
-	font = wezterm.font("Agave Nerd Font", { weight = "Regular" }),
+	font = fonts["blex"],
 
 	-- color_scheme = "Catppuccin Mocha",
 	color_scheme = "carbonfox",
@@ -128,7 +137,7 @@ if wezterm.target_triple == "aarch64-apple-darwin" then
 end
 
 if wezterm.target_triple == "x86_64-apple-darwin" then
-	config.font_size = 14
+	config.font_size = 12
 end
 
 if config.enable_wayland == false then
