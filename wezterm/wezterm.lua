@@ -130,6 +130,7 @@ end
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	-- config.default_domain = "WSL:arch"
 	config.default_prog = { "pwsh.exe", "-NoLogo" }
+	config.font_size = 10
 end
 
 if wezterm.target_triple == "aarch64-apple-darwin" then
