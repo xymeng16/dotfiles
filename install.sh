@@ -1,18 +1,11 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
-# check if the script is run as root
-if [ "$EUID" -ne 0 ]; then
-	echo "Please run as root"
-	exit
-fi
+SCRIPT=$(readlink -f "$0")
+SCRIPT_DIR=$(dirname $SCRIPT)
 
-# check if the script is not invoked by "sudo -E" (preserve environment)
-if [ "$HOME" = "/root" ]; then
-	echo "Please use sudo -E to avoid installing into /root"
-	exit
-fi
+CONFIG_DIR="$HOME/.config/"
 
-CONFIG_DIR="$HOME/.config"
+CONFIGS_TO_BE_INSTALLED="fish gdb nvim rime tex wezterm"
 
 # Install the necessary packages
 # Distribution-specific commands should be provided
@@ -21,25 +14,9 @@ CONFIG_DIR="$HOME/.config"
 # bind mount all necessary directories
 
 # get all directory names
-directories=$(ls -d */)
+# directories=$(ls -d $SCRIPT_DIR/*/)
 
 # bind mount all directories
-for dir in $directories; do
-	# don't mount the install.win directory
-	if [ "$dir" == "install.win/" ]; then
-		continue
-	fi
-
-	# get the directory name
-	dir_name=$(echo $dir | sed 's/\///g')
-
-	# check if the directory is already mounted
-	# magic logic here, idk why the original path does not
-	# appear in my /proc/mounts, instead it is dotfiles/fish, etc.
-	if grep -qs "dotfiles/$dir_name" /proc/mounts; then
-		echo "$CONFIG_DIR/$dir_name is already mounted"
-	else
-		mount --bind "$dir" "$CONFIG_DIR/$dir_name"
-		echo "Mounting $dir to $CONFIG_DIR/$dir_name"
-	fi
+for dir in $CONFIGS_TO_BE_INSTALLED; do
+	ln -s "$SCRIPT_DIR/$dir" $CONFIG_DIR
 done
