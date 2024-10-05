@@ -10,7 +10,6 @@ if status is-interactive
                 set -gx OHOS_NDK_HOME /home/xiangyi/Downloads/command-line-tools/sdk/HarmonyOS-NEXT-DB1/openharmony
             end
         case Darwin
-
             # setup homebrew
             # check if homebrew is installed
             if test -e /opt/homebrew/bin/brew
@@ -19,8 +18,9 @@ if status is-interactive
             if test -e /opt/homebrew/bin/orb
                 fish_add_path /Users/xiangyi/.orbstack/bin
             end
-            set -x OHOS_NDK_HOME /Applications/DevEco-Studio.app/Contents/sdk/HarmonyOS-NEXT*/openharmony/
-            fish_add_path /Applications/DevEco-Studio.app/Contents/sdk/HarmonyOS-NEXT*/openharmony/toolchains/
+            set -x OHOS_NDK_HOME /Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/
+            fish_add_path /Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/
+            fish_add_path /Applications/DevEco-Studio.app/Contents/tools/ohpm/bin/
     end
 
     # config node

@@ -134,7 +134,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 end
 
 if wezterm.target_triple == "aarch64-apple-darwin" then
-	config.font_size = 16
+	config.font_size = 14
 end
 
 if wezterm.target_triple == "x86_64-apple-darwin" then
