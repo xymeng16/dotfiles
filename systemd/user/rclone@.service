@@ -1,0 +1,36 @@
+# rclone mount gdrive: /home/xiangyi/gdrive/ --daemon --vfs-cache-mode full
+[Unit]
+Description=RClone mount of users remote %i using filesystem permissions
+Documentation=https://rclone.org/docs
+After=network-online.target
+
+[Service]
+Type=notify
+# Set up environment
+Environment=REMOTE_NAME="%i"
+Environment=REMOTE_PATH="/"
+Environment=MOUNT_DIR="%h/%i"
+Environment=RCLONE_MOUNT_VFS_CACHE_MODE="full"
+
+#Check that rclone is installed
+ExecStartPre=/usr/bin/test -x /usr/bin/rclone
+
+
+#Check the mount directory
+ExecStartPre=/usr/bin/test -d "${MOUNT_DIR}"
+ExecStartPre=/usr/bin/test -w "${MOUNT_DIR}"
+
+# Mount rclone fs
+ExecStart=/usr/bin/rclone mount "${REMOTE_NAME}:${REMOTE_PATH}" "${MOUNT_DIR}" \
+  --vfs-cache-mode "${RCLONE_MOUNT_VFS_CACHE_MODE}" 
+
+
+# Unmount rclone fs
+ExecStop=/bin/fusermount -u "${MOUNT_DIR}"
+
+# Restart information
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target
