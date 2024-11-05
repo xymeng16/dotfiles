@@ -28,6 +28,13 @@ local mods = {
 	["csha"] = "CTRL|SHIFT|ALT",
 }
 
+local font_sizes = {
+	["x86_64-pc-windows-msvc"] = 10,
+	["aarch64-apple-darwin"] = 14,
+	["x86_64-apple-darwin"] = 12,
+	["x86_64-unknown-linux-gnu"] = 10,
+}
+
 local font_options = {
 	weight = "Regular",
 }
@@ -41,6 +48,8 @@ local config = {
 	front_end = "WebGpu",
 
 	font = fonts["blex"],
+
+	font_size = font_sizes[wezterm.target_triple],
 
 	-- color_scheme = "Catppuccin Mocha",
 	color_scheme = "carbonfox",
@@ -106,8 +115,8 @@ local config = {
 	-- enable_wayland = false,
 	use_fancy_tab_bar = false,
 	hide_tab_bar_if_only_one_tab = true,
-	window_background_opacity = 0.9,
-	text_background_opacity = 0.9,
+	-- window_background_opacity = 0.9,
+	-- text_background_opacity = 0.9,
 }
 
 for i = 1, 8 do
@@ -128,21 +137,7 @@ for key, direction in pairs(directional_keys) do
 end
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-	-- config.default_domain = "WSL:arch"
 	config.default_prog = { "pwsh.exe", "-NoLogo" }
-	config.font_size = 10
-end
-
-if wezterm.target_triple == "aarch64-apple-darwin" then
-	config.font_size = 14
-end
-
-if wezterm.target_triple == "x86_64-apple-darwin" then
-	config.font_size = 12
-end
-
-if config.enable_wayland == false then
-	config.dpi = 192.0
 end
 
 return config
