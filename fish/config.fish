@@ -61,3 +61,17 @@ if status is-interactive
     set -gx USE_CCACHE 1
     set -gx CCACHE_EXEC /usr/bin/ccache
 end
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f /Users/xiangyi/miniconda3/bin/conda
+    eval /Users/xiangyi/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+else
+    if test -f "/Users/xiangyi/miniconda3/etc/fish/conf.d/conda.fish"
+        . "/Users/xiangyi/miniconda3/etc/fish/conf.d/conda.fish"
+    else
+        set -x PATH "/Users/xiangyi/miniconda3/bin" $PATH
+    end
+end
+# <<< conda initialize <<<
+
