@@ -66,16 +66,17 @@ end
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-if test -f /home/xiangyi/miniconda3/bin/conda
-    eval /home/xiangyi/miniconda3/bin/conda "shell.fish" hook $argv | source
+if test -f ~/miniconda3/bin/conda
+    eval ~/miniconda3/bin/conda "shell.fish" hook $argv | source
 else
-    if test -f "/home/xiangyi/miniconda3/etc/fish/conf.d/conda.fish"
-        source "/home/xiangyi/miniconda3/etc/fish/conf.d/conda.fish"
+    if test -f "~/miniconda3/etc/fish/conf.d/conda.fish"
+        source "~/miniconda3/etc/fish/conf.d/conda.fish"
     else
-        set -x PATH /home/xiangyi/miniconda3/bin $PATH
+        set -x PATH "~/miniconda3/bin" $PATH
     end
 end
 # <<< conda initialize <<<
 
-# Added by LM Studio CLI tool (lms)
-set -gx PATH $PATH /home/xiangyi/.cache/lm-studio/bin
+if test -f ~/.cache/lm-studio/bin
+    set -gx PATH $PATH /home/xiangyi/.cache/lm-studio/bin
+end
