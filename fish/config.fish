@@ -46,7 +46,9 @@ if status is-interactive
 
     fish_add_path ~/.local/bin
 
-    oh-my-posh init fish --config "~/.config/fish/omp/1_shell.omp.json" | source
+    #oh-my-posh init fish --config "~/.config/fish/omp/1_shell.omp.json" | source
+    set -gx STARSHIP_CONFIG "~/.config/starship/starship.toml"
+    starship init fish | source
 
     keychain --eval --quiet -Q id_rsa | source
 
@@ -61,3 +63,19 @@ if status is-interactive
     set -gx USE_CCACHE 1
     set -gx CCACHE_EXEC /usr/bin/ccache
 end
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f /home/xiangyi/miniconda3/bin/conda
+    eval /home/xiangyi/miniconda3/bin/conda "shell.fish" hook $argv | source
+else
+    if test -f "/home/xiangyi/miniconda3/etc/fish/conf.d/conda.fish"
+        source "/home/xiangyi/miniconda3/etc/fish/conf.d/conda.fish"
+    else
+        set -x PATH /home/xiangyi/miniconda3/bin $PATH
+    end
+end
+# <<< conda initialize <<<
+
+# Added by LM Studio CLI tool (lms)
+set -gx PATH $PATH /home/xiangyi/.cache/lm-studio/bin

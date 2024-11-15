@@ -10,7 +10,7 @@ SCRIPT_DIR=$(dirname $SCRIPT)
 FCITX5_DIR="$HOME/.local/share/fcitx5/"
 CONFIG_DIR="$HOME/.config/"
 
-CONFIGS_TO_BE_INSTALLED="fish gdb nvim tex wezterm"
+CONFIGS_TO_BE_INSTALLED="fish gdb nvim tex wezterm starship"
 
 # Install the necessary packages
 # Distribution-specific commands should be provided

@@ -2,13 +2,13 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 
 -- functions
-local function enable_wayland()
-	local wayland = os.getenv("XDG_SESSION_TYPE")
-	if wayland == "wayland" then
-		return true
-	end
-	return false
-end
+-- local function enable_wayland()
+-- 	local wayland = os.getenv("XDG_SESSION_TYPE")
+-- 	if wayland == "wayland" then
+-- 		return true
+-- 	end
+-- 	return false
+-- end
 
 -- key-direction map
 local directional_keys = {
@@ -112,7 +112,7 @@ local config = {
 		},
 	},
 
-	-- enable_wayland = false,
+	enable_wayland = true,
 	use_fancy_tab_bar = false,
 	hide_tab_bar_if_only_one_tab = true,
 	-- window_background_opacity = 0.9,
