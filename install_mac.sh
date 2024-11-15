@@ -10,7 +10,7 @@ if ! command -v brew &>/dev/null; then
 fi
 
 # install dependencies
-brew install fish neovim ripgrep fd jesseduffield/lazygit/lazygit koekeishiya/formulae/yabai
+brew install fish neovim ripgrep fd jesseduffield/lazygit/lazygit keychain starship
 brew install --cask wezterm
 
 # change default shell to fish
@@ -26,10 +26,9 @@ echo "fisher install jorgebucaran/nvm.fish" | fish
 echo "nvm install latest" | fish
 
 # create symlinks
-ln -s $(pwd)/fish $HOME/.config/fish"
-ln -s $(pwd)/nvim $HOME/.config/nvim"
-ln -s $(pwd)/wezterm $HOME/.config/wezterm"
-ln -s $(pwd)/yabai $HOME/.config/yabai"
+ln -s $(pwd)/fish $HOME/.config/fish
+ln -s $(pwd)/nvim $HOME/.config/nvim
+ln -s $(pwd)/wezterm $HOME/.config/wezterm
 
 echo "Installed successfully. You will need to reopen your terminal."
 echo ""
