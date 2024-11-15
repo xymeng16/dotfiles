@@ -62,21 +62,21 @@ if status is-interactive
     set -gx EDITOR nvim
     set -gx USE_CCACHE 1
     set -gx CCACHE_EXEC /usr/bin/ccache
-end
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-if test -f ~/miniconda3/bin/conda
-    eval ~/miniconda3/bin/conda "shell.fish" hook $argv | source
-else
-    if test -f "~/miniconda3/etc/fish/conf.d/conda.fish"
-        source "~/miniconda3/etc/fish/conf.d/conda.fish"
+    # >>> conda initialize >>>
+    # !! Contents within this block are managed by 'conda init' !!
+    if test -f ~/miniconda3/bin/conda
+        eval ~/miniconda3/bin/conda "shell.fish" hook $argv | source
     else
-        set -x PATH "~/miniconda3/bin" $PATH
+        if test -f "~/miniconda3/etc/fish/conf.d/conda.fish"
+            source "~/miniconda3/etc/fish/conf.d/conda.fish"
+        else
+            set -x PATH "~/miniconda3/bin" $PATH
+        end
     end
-end
-# <<< conda initialize <<<
+    # <<< conda initialize <<<
 
-if test -f ~/.cache/lm-studio/bin
-    set -gx PATH $PATH /home/xiangyi/.cache/lm-studio/bin
+    if test -f ~/.cache/lm-studio/bin
+        set -gx PATH $PATH /home/xiangyi/.cache/lm-studio/bin
+    end
 end
