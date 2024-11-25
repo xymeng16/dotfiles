@@ -1,0 +1,15 @@
+return {
+  "folke/tokyonight.nvim",
+  lazy = false,
+  priority = 1000,
+  opts = {
+    lualine_bold = true,
+    style = "day",
+    styles = {
+      comments = { italic = true },
+      keywords = { italic = true, bold = true },
+      functions = { bold = true },
+      variables = { bold = true },
+    },
+  },
+}

@@ -4,7 +4,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "carbonfox",
+      colorscheme = "quietlight",
 
       news = {
         -- When enabled, NEWS.md will be shown when changed.

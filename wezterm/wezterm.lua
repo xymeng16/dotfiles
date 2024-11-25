@@ -30,7 +30,7 @@ local mods = {
 
 local font_sizes = {
 	["x86_64-pc-windows-msvc"] = 10,
-	["aarch64-apple-darwin"] = 14,
+	["aarch64-apple-darwin"] = 12,
 	["x86_64-apple-darwin"] = 12,
 	["x86_64-unknown-linux-gnu"] = 10,
 }
@@ -52,7 +52,7 @@ local config = {
 	font_size = font_sizes[wezterm.target_triple],
 
 	-- color_scheme = "Catppuccin Mocha",
-	color_scheme = "carbonfox",
+	color_scheme = "Alabaster",
 
 	keys = {
 		-- Create a new tab in the same domain as the current pane
@@ -115,6 +115,7 @@ local config = {
 	enable_wayland = true,
 	use_fancy_tab_bar = false,
 	hide_tab_bar_if_only_one_tab = true,
+	native_macos_fullscreen_mode = true,
 	-- window_background_opacity = 0.9,
 	-- text_background_opacity = 0.9,
 }

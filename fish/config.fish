@@ -1,5 +1,6 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here 
+    fish_config theme choose tokyonight_day
     # detect OS type
     set OS (uname)
     switch $OS
@@ -50,6 +51,7 @@ if status is-interactive
     set -gx STARSHIP_CONFIG "~/.config/starship/starship.toml"
     starship init fish | source
 
+    set -x SHELL (which fish)
     keychain --eval --quiet -Q id_rsa | source
 
     # define alias
@@ -79,4 +81,9 @@ if status is-interactive
     if test -f ~/.cache/lm-studio/bin
         set -gx PATH $PATH /home/xiangyi/.cache/lm-studio/bin
     end
+
+    fish_add_path ~/.cargo/bin/
 end
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/xiangyi/.cache/lm-studio/bin
