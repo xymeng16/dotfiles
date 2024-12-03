@@ -36,7 +36,7 @@ local font_sizes = {
 }
 
 local font_options = {
-	weight = "Regular",
+	weight = "DemiBold",
 }
 
 local fonts = {
@@ -107,7 +107,7 @@ local config = {
 			key = "t",
 			mods = mods["cs"],
 			action = wezterm.action.SpawnCommandInNewTab({
-				args = { "htop" },
+				args = { "btop" },
 			}),
 		},
 	},
