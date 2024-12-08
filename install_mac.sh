@@ -16,7 +16,7 @@ fi
 
 # install dependencies
 brew install font-blex-mono-nerd-font fish neovim fzf ripgrep fd jesseduffield/lazygit/lazygit keychain starship stats tmux
-brew install --cask wezterm raycast
+brew install --cask wezterm raycast visual-studio-code rustrover
 
 # change default shell to fish
 if ! grep -q "$(which fish)" /etc/shells; then
@@ -47,6 +47,11 @@ echo "nvm install latest" | fish
 mkdir -p ~/.config/tmux
 ln -s $(pwd)/tmux/.tmux.conf ~/.config/tmux/tmux.conf
 ln -s $(pwd)/tmux/.tmux.conf.local ~/.config/tmux/tmux.conf.local
+
+# forcibly disable text replacement
+defaults write -g WebAutomaticTextReplacementEnabled -bool false
+rm -rf ~/Library/KeyboardServices/TextReplacements.db ~/Library/KeyboardServices/TextReplacements.db-shm ~/Library/KeyboardServices/TextReplacements.db-wal
+sudo touch ~/Library/KeyboardServices/TextReplacements.db ~/Library/KeyboardServices/TextReplacements.db-shm ~/Library/KeyboardServices/TextReplacements.db-wal
 
 echo "Installed successfully. You will need to reopen your terminal."
 echo ""
