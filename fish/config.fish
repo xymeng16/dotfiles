@@ -23,6 +23,7 @@ if status is-interactive
             fish_add_path /Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/
             fish_add_path /Applications/DevEco-Studio.app/Contents/tools/ohpm/bin/
             fish_add_path /Users/xiangyi/.local/bin/
+            fish_add_path /Users/xiangyi/go/bin/
     end
 
     # config node
