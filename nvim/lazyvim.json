@@ -1,6 +1,5 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.ai.copilot",
     "lazyvim.plugins.extras.dap.core",
     "lazyvim.plugins.extras.dap.nlua",
     "lazyvim.plugins.extras.formatting.black",
@@ -21,8 +20,9 @@
     "lazyvim.plugins.extras.test.core",
     "lazyvim.plugins.extras.ui.alpha"
   ],
+  "install_version": 7,
   "news": {
     "NEWS.md": "3314"
   },
-  "version": 7
+  "version": 8
 }
