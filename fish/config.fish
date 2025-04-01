@@ -24,6 +24,7 @@ if status is-interactive
             fish_add_path /Applications/DevEco-Studio.app/Contents/tools/ohpm/bin/
             fish_add_path /Users/xiangyi/.local/bin/
             fish_add_path /Users/xiangyi/go/bin/
+            fish_add_path /opt/homebrew/opt/llvm/bin/
     end
 
     # config node
