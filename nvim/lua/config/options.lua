@@ -9,6 +9,23 @@ if vim.fn.has("win32") == 1 then
   opt.shell = "pwsh.exe" -- Please install Powershell 7
 end
 
+vim.opt.clipboard = "unnamedplus"
+vim.g.snacks_animate = false
+
+if os.getenv("SSH_TTY") ~= nil then
+  vim.g.clipboard = {
+    name = "OSC 52",
+    copy = {
+      ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+      ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+    },
+    paste = {
+      ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+      ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+    },
+  }
+end
+
 -- try mitigating old-school vimrc
 vim.api.nvim_command("filetype plugin indent on")
 vim.api.nvim_command("syntax on")
