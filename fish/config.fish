@@ -22,6 +22,8 @@ if status is-interactive
             set -x OHOS_NDK_HOME /Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/
             fish_add_path /Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/
             fish_add_path /Applications/DevEco-Studio.app/Contents/tools/ohpm/bin/
+            fish_add_path /Users/xiangyi/.local/bin/
+            fish_add_path /Users/xiangyi/go/bin/
     end
 
     # config node
@@ -59,6 +61,11 @@ if status is-interactive
     alias se="sudo -E"
     alias v="nvim"
     alias ta="tmux a"
+    alias lc="leetcode"
+    alias lcp="leetcode pick"
+    alias lce="leetcode edit"
+    alias lct="leetcode test"
+    alias lcex="leetcode exec"
 
     # define variables
     set -gx EDITOR nvim
@@ -87,3 +94,6 @@ end
 
 # Added by LM Studio CLI (lms)
 set -gx PATH $PATH /Users/xiangyi/.cache/lm-studio/bin
+
+# Added by Windsurf
+fish_add_path /Users/xiangyi/.codeium/windsurf/bin
