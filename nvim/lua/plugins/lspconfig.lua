@@ -3,9 +3,10 @@ local config = {
     "neovim/nvim-lspconfig",
     optional = true,
     opts = {
+      autoformat = false,
       inlay_hints = { enabled = true },
       codelens = {
-        enabled = false,
+        enabled = true,
       },
       servers = {
         clangd = {
@@ -46,7 +47,7 @@ local config = {
         },
         texlab = {
           keys = {
-            { "<Leader>K", "<plug>(vimtex-doc-package)", desc = "Vimtex Docs", silent = true },
+            { "<Leader>K", "<plug>(vimtex-dmc-package)", desc = "Vimtex Docs", silent = true },
             { "<leader>td", "<cmd>lua require('dap-go').debug_test()<CR>", desc = "Debug Nearest (Go)" },
           },
         },

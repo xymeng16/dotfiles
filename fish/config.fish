@@ -5,10 +5,10 @@ if status is-interactive
     set OS (uname)
     switch $OS
         case Linux
-            if test -e /home/xiangyi/Downloads/command-line-tools
-                fish_add_path /home/xiangyi/Downloads/command-line-tools/bin
-                fish_add_path /home/xiangyi/Downloads/command-line-tools/sdk/HarmonyOS-NEXT-DB1/openharmony/toolchains
-                set -gx OHOS_NDK_HOME /home/xiangyi/Downloads/command-line-tools/sdk/HarmonyOS-NEXT-DB1/openharmony
+            if test -e ~/Downloads/command-line-tools
+                fish_add_path ~/Downloads/command-line-tools/bin
+                fish_add_path ~/Downloads/command-line-tools/sdk/HarmonyOS-NEXT-DB1/openharmony/toolchains
+                set -gx OHOS_NDK_HOME ~/Downloads/command-line-tools/sdk/HarmonyOS-NEXT-DB1/openharmony
             end
         case Darwin
             # setup homebrew
@@ -17,14 +17,18 @@ if status is-interactive
                 fish_add_path /opt/homebrew/bin
             end
             if test -e /opt/homebrew/bin/orb
-                fish_add_path /Users/xiangyi/.orbstack/bin
+                fish_add_path ~/.orbstack/bin
             end
             set -x OHOS_NDK_HOME /Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/
             fish_add_path /Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/
             fish_add_path /Applications/DevEco-Studio.app/Contents/tools/ohpm/bin/
-            fish_add_path /Users/xiangyi/.local/bin/
-            fish_add_path /Users/xiangyi/go/bin/
+            fish_add_path ~/.local/bin/
+            fish_add_path ~/go/bin/
             fish_add_path /opt/homebrew/opt/llvm/bin/
+            fish_add_path /opt/homebrew/opt/openjdk@11/bin
+            fish_add_path ~/Library/Android/sdk/platform-tools
+            set -x ANDROID_SDK_ROOT ~/Library/Android/sdk/
+            set -x ANDROID_NDK_ROOT ~/Library/Android/sdk/ndk/23.1.7779620/
     end
 
     # config node
@@ -87,14 +91,20 @@ if status is-interactive
     # <<< conda initialize <<<
 
     if test -f ~/.cache/lm-studio/bin
-        set -gx PATH $PATH /home/xiangyi/.cache/lm-studio/bin
+        set -gx PATH $PATH ~/.cache/lm-studio/bin
     end
 
     fish_add_path ~/.cargo/bin/
 end
 
 # Added by LM Studio CLI (lms)
-set -gx PATH $PATH /Users/xiangyi/.cache/lm-studio/bin
+set -gx PATH $PATH ~/.cache/lm-studio/bin
 
 # Added by Windsurf
-fish_add_path /Users/xiangyi/.codeium/windsurf/bin
+fish_add_path ~/.codeium/windsurf/bin
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/xiangyi.meng/.lmstudio/bin
+# End of LM Studio CLI section
+
+fish_add_path $HOME/.local/bin
