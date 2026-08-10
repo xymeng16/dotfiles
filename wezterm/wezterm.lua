@@ -30,8 +30,8 @@ local mods = {
 
 local font_sizes = {
 	["x86_64-pc-windows-msvc"] = 10,
-	["aarch64-apple-darwin"] = 12,
-	["x86_64-apple-darwin"] = 12,
+	["aarch64-apple-darwin"] = 14,
+	["x86_64-apple-darwin"] = 14,
 	["x86_64-unknown-linux-gnu"] = 10,
 }
 
@@ -53,6 +53,8 @@ local config = {
 
 	-- color_scheme = "Catppuccin Mocha",
 	color_scheme = "Alabaster",
+  -- color_scheme = "Ashes (light) (terminal.sexy)",
+  -- color_scheme = "Atelier Cave Light (base16)",
 
 	keys = {
 		-- Create a new tab in the same domain as the current pane

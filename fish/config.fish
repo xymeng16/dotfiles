@@ -28,7 +28,7 @@ if status is-interactive
             fish_add_path /opt/homebrew/opt/openjdk@11/bin
             fish_add_path ~/Library/Android/sdk/platform-tools
             set -x ANDROID_SDK_ROOT ~/Library/Android/sdk/
-            set -x ANDROID_NDK_ROOT ~/Library/Android/sdk/ndk/23.1.7779620/
+            set -x ANDROID_NDK_ROOT ~/Library/Android/sdk/ndk/r29/
     end
 
     # config node
@@ -108,3 +108,22 @@ set -gx PATH $PATH /Users/xiangyi.meng/.lmstudio/bin
 # End of LM Studio CLI section
 
 fish_add_path $HOME/.local/bin
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/xiangyi/.lmstudio/bin
+# End of LM Studio CLI section
+
+
+# opencode
+fish_add_path /Users/xiangyi/.opencode/bin
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+
+
+set -gx MUSEAI_API_KEY 373486ef-5f01-438f-acaa-4b51a0e2ca95
