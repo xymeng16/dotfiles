@@ -51,8 +51,9 @@ local config = {
 
 	font_size = font_sizes[wezterm.target_triple],
 
+  color_scheme = "Abernathy",
 	-- color_scheme = "Catppuccin Mocha",
-	color_scheme = "Alabaster",
+	-- color_scheme = "Alabaster",
   -- color_scheme = "Ashes (light) (terminal.sexy)",
   -- color_scheme = "Atelier Cave Light (base16)",
 

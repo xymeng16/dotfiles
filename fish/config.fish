@@ -1,6 +1,7 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here 
-    fish_config theme choose tokyonight_day
+    # fish_config theme choose tokyonight_day
+    fish_config theme choose tokyonight
     # detect OS type
     set OS (uname)
     switch $OS
